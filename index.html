@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vaishnavi Kalmegh — QA / Software Test Engineer portfolio. Manual testing, API testing, Selenium, Python and pytest.">
+  <title>Vaishnavi Kalmegh | QA Engineer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Vaishnavi Kalmegh home"><span>VK</span> VAISHNAVI KALMEGH</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" class="nav">
+      <a href="#projects">Projects</a>
+      <a href="#test-lab">Test Lab</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy">
+        <p class="eyebrow">QA / SOFTWARE TEST ENGINEER</p>
+        <h1>I test software by<br><span>trying to break it.</span></h1>
+        <p class="lead">Manual testing, API testing, UI automation, Python and pytest — presented as evidence, not just a list of skills.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore testing work <span>→</span></a>
+          <a class="btn ghost" href="https://github.com/vaishnavi-kalmegh" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="terminal-card">
+        <div class="terminal-bar"><i></i><i></i><i></i><span>qa-check.sh</span></div>
+        <pre><code><b>$</b> test --scope portfolio
+
+manual QA        ✓
+API / Postman    ✓
+Selenium / POM   ✓
+pytest           ✓
+CI / GitHub      ✓
+
+<b>focus:</b> clear evidence
+<b>mindset:</b> find the failure</code></pre>
+      </div>
+    </section>
+
+    <section class="stats section" aria-label="Portfolio metrics">
+      <div class="stat"><strong>4</strong><span>QA projects</span></div>
+      <div class="stat"><strong>18</strong><span>UI automation tests</span></div>
+      <div class="stat"><strong>29</strong><span>ML pytest cases</span></div>
+      <div class="stat"><strong>41</strong><span>API assertions in latest run</span></div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-heading">
+        <div><p class="eyebrow">PROJECTS</p><h2>Evidence across the QA stack.</h2></div>
+        <p>Each project links back to the repository so a reviewer can inspect the implementation.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project-card featured">
+          <div class="card-top"><span class="tag">UI AUTOMATION</span><span class="number">01</span></div>
+          <h3>SauceDemo Selenium Automation</h3>
+          <p>Python + Selenium + pytest + Page Object Model. Covers login, cart and checkout with explicit waits, fixtures, markers, HTML reporting and GitHub Actions.</p>
+          <div class="mini-metrics"><b>18</b> tests <b>POM</b> design <b>CI</b> workflow</div>
+          <a href="https://github.com/vaishnavi-kalmegh/saucedemo-selenium-automation" target="_blank" rel="noreferrer">Inspect repository →</a>
+        </article>
+        <article class="project-card">
+          <div class="card-top"><span class="tag">API TESTING</span><span class="number">02</span></div>
+          <h3>Restful-Booker API Testing</h3>
+          <p>Postman + Newman coverage for authentication and CRUD flows, including negative cases, status codes, response-time checks and schema-style assertions.</p>
+          <div class="mini-metrics"><b>12</b> requests <b>41</b> assertions <b>1</b> known failure</div>
+          <a href="https://github.com/vaishnavi-kalmegh/restful-booker-api-testing" target="_blank" rel="noreferrer">Inspect repository →</a>
+        </article>
+        <article class="project-card">
+          <div class="card-top"><span class="tag">MODEL QA</span><span class="number">03</span></div>
+          <h3>ML Model Testing with pytest</h3>
+          <p>A QA-focused scikit-learn project that attacks the prediction interface with malformed data, missing values, wrong types, unseen categories and behavior contracts.</p>
+          <div class="mini-metrics"><b>29</b> cases <b>pytest</b> fixtures <b>CI</b> workflow</div>
+          <a href="https://github.com/vaishnavi-kalmegh/ml-model-testing-pytest" target="_blank" rel="noreferrer">Inspect repository →</a>
+        </article>
+        <article class="project-card">
+          <div class="card-top"><span class="tag">MANUAL QA</span><span class="number">04</span></div>
+          <h3>SauceDemo Manual Testing</h3>
+          <p>Structured manual QA documentation: test plan, Excel test cases, test summary and defect documentation with reproduction steps and expected/actual results.</p>
+          <div class="mini-metrics"><b>Plan</b> strategy <b>Cases</b> coverage <b>Defects</b> clarity</div>
+          <a href="https://github.com/vaishnavi-kalmegh/saucedemo-manual-testing" target="_blank" rel="noreferrer">Inspect repository →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="test-lab" class="section lab">
+      <div class="section-heading">
+        <div><p class="eyebrow">INTERACTIVE TEST LAB</p><h2>See how I think like a tester.</h2></div>
+        <p>These are portfolio examples based on the project work. They are not presented as production defects.</p>
+      </div>
+      <div class="lab-controls" role="tablist" aria-label="Test lab categories">
+        <button class="lab-tab active" data-panel="cases" role="tab" aria-selected="true">Test cases</button>
+        <button class="lab-tab" data-panel="bugs" role="tab" aria-selected="false">Bug lab</button>
+        <button class="lab-tab" data-panel="reports" role="tab" aria-selected="false">Reports</button>
+      </div>
+      <div id="cases" class="lab-panel active" role="tabpanel">
+        <div class="case-layout">
+          <div class="case-list">
+            <button class="case-item active" data-case="checkout"><span>TC-01</span> Checkout required-field validation</button>
+            <button class="case-item" data-case="api"><span>TC-02</span> Missing API field rejection</button>
+            <button class="case-item" data-case="unseen"><span>TC-03</span> Unseen model category</button>
+          </div>
+          <div class="case-detail" id="case-detail"></div>
+        </div>
+      </div>
+      <div id="bugs" class="lab-panel" role="tabpanel">
+        <div class="bug-card">
+          <div class="severity">KNOWN API FINDING</div>
+          <h3>POST /booking — missing firstname</h3>
+          <p class="muted">From the documented Restful-Booker Newman run.</p>
+          <div class="bug-grid">
+            <div><span>Expected</span><strong>4xx client error (400/422)</strong></div>
+            <div><span>Actual</span><strong>500 Internal Server Error</strong></div>
+            <div><span>Assertion</span><strong>“Missing required field is rejected”</strong></div>
+            <div><span>Run result</span><strong>40 passed / 1 failed assertion</strong></div>
+          </div>
+          <p>This is intentionally left failing in the project to make the API behavior visible rather than hiding the finding behind a green report.</p>
+          <a href="https://github.com/vaishnavi-kalmegh/restful-booker-api-testing" target="_blank" rel="noreferrer">View the API project →</a>
+        </div>
+      </div>
+      <div id="reports" class="lab-panel" role="tabpanel">
+        <div class="report-grid">
+          <div class="report-card"><span class="tag">NEWMan</span><strong>5.7s</strong><p>Latest documented API run duration</p><small>12 requests · 41 assertions</small></div>
+          <div class="report-card"><span class="tag">PYTEST</span><strong>29</strong><p>ML test cases collected</p><small>Markers cover input and quality categories</small></div>
+          <div class="report-card"><span class="tag">SELENIUM</span><strong>18</strong><p>UI automation tests</p><small>Login · Cart · Checkout</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="challenge" class="section challenge">
+      <div class="challenge-copy">
+        <p class="eyebrow">QA CHALLENGE</p>
+        <h2>Can you spot the bug?</h2>
+        <p>Imagine this checkout rule: the app should block checkout when the postal code is blank. Which observation is a defect?</p>
+      </div>
+      <div class="challenge-box">
+        <button class="choice" data-answer="wrong">A. Button remains enabled, but clicking it shows an error.</button>
+        <button class="choice" data-answer="right">B. Blank postal code submits the order successfully.</button>
+        <button class="choice" data-answer="wrong">C. The browser focuses the postal-code field.</button>
+        <div id="challenge-result" class="challenge-result" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills">
+      <div class="section-heading"><div><p class="eyebrow">TOOLBOX</p><h2>What I work with.</h2></div></div>
+      <div class="skill-grid">
+        <div><h3>Testing</h3><p>Manual testing · Functional · Negative · Boundary · Regression · Defect reporting</p></div>
+        <div><h3>Automation</h3><p>Selenium WebDriver · pytest · Page Object Model · explicit waits · fixtures · parametrization</p></div>
+        <div><h3>API</h3><p>Postman · Newman · REST · authentication · CRUD · status/assertion validation</p></div>
+        <div><h3>Engineering</h3><p>Python · Git/GitHub · GitHub Actions · HTML reports · CI test execution</p></div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div><p class="eyebrow">ABOUT</p><h2>Evidence over buzzwords.</h2></div>
+      <div class="about-copy">
+        <p>This portfolio is built around a simple QA principle: a skill is more credible when someone can inspect the work behind it.</p>
+        <p>The projects move from structured manual testing into API automation, browser automation and pytest-based model testing. The repositories contain the implementation, test design and documented observations.</p>
+        <p class="note">Portfolio note: project metrics shown here come from the repositories' documented test suites/runs. They are not claims of production experience.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <p class="eyebrow">NEXT STEP</p>
+      <h2>Want to inspect the work?</h2>
+      <p>Start with GitHub, then open any project to inspect the actual test code and artifacts.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/vaishnavi-kalmegh" target="_blank" rel="noreferrer">Open GitHub ↗</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/vaishnavi-kalmegh" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>© 2026 Vaishnavi Kalmegh</span><span>Built around QA evidence, not decoration.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
