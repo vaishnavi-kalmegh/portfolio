@@ -1,21 +1,14 @@
-const start=document.querySelector("#start"),checkout=document.querySelector("#checkout"),postal=document.querySelector("#postal"),message=document.querySelector("#bugMessage"),score=document.querySelector("#score"),hint=document.querySelector("#hintText");let found=new Set();
-start?.addEventListener("click",()=>document.querySelector("#lab").scrollIntoView({behavior:"smooth",block:"start"}));
-checkout?.addEventListener("click",()=>{
-  const value=postal.value.trim(); let bug=null;
-  if(!value) bug="empty";
-  else if(/^[A-Za-z]+$/.test(value)) bug="alpha";
-  else if(/^\d+$/.test(value)&&value.length<5) bug="boundary";
-  if(bug){
-    const first=!found.has(bug); found.add(bug);
-    const labels={empty:"REQUIRED FIELD BYPASS",alpha:"TYPE VALIDATION BYPASS",boundary:"BOUNDARY VALIDATION BYPASS"};
-    message.classList.add("found"); message.textContent="⚠ PLANTED DEFECT FOUND / "+labels[bug];
-    document.querySelector("#defect-"+bug)?.classList.add("found");
-    score.textContent=found.size+"/3";
-    if(first) score.animate([{transform:"scale(1.3)"},{transform:"scale(1)"}],{duration:300,easing:"ease-out"});
-    hint.textContent=found.size===3?"ALL 3 FOUND / NICE TEST DESIGN.":"Keep attacking the boundary.";
-  }else{
-    message.classList.remove("found"); message.textContent=value.length===5&&/^\d+$/.test(value)?"✓ HAPPY PATH / NOW TRY A NEGATIVE CASE":"✓ INPUT ACCEPTED / TRY A DIFFERENT EDGE CASE";
-  }
-});
-document.querySelector("#failLine")?.addEventListener("click",()=>document.querySelector("#failureCard").classList.toggle("open"));
-document.querySelectorAll(".project").forEach((card,index)=>card.addEventListener("mouseenter",()=>card.style.setProperty("--n",index+1)));
+const $=(s)=>document.querySelector(s);const $$=(s)=>document.querySelectorAll(s);
+const theme=$('#themeToggle');theme?.addEventListener('click',()=>{document.body.classList.toggle('light');const light=document.body.classList.contains('light');theme.textContent=light?'Dark mode':'Light mode';theme.setAttribute('aria-pressed',String(light));});
+const lines=['$ newman run Restful-Booker-API-Automation.postman_collection.json','→ 12 requests · 0 failed','→ 41 assertions · 40 passed · 1 failed','→ duration 5.7s','→ average response 326ms'];const terminal=$('#terminal');let i=0;
+function typeLine(){if(!terminal||i>=lines.length)return;const el=document.createElement('div');el.className='term-line '+(i===2?'term-pass':'');el.textContent=lines[i];terminal.appendChild(el);requestAnimationFrame(()=>el.classList.add('visible'));i++;setTimeout(typeLine,260);}
+if(terminal)typeLine();
+$('#failureToggle')?.addEventListener('click',()=>{const card=$('#apiBug'),open=!card.hidden;card.hidden=open;$('#failureToggle').setAttribute('aria-expanded',String(!open));});
+const postal=$('#postal'),quantity=$('#quantity'),total=$('#total'),status=$('#labStatus'),bugList=$('#bugList'),hint=$('#hint'),hire=$('#hire'),reset=$('#resetLab');let found=new Set();let timer=setTimeout(()=>{if(found.size===0&&hint)hint.hidden=false;},20000);
+const bugData={postalEmpty:{title:'Postal Code accepts empty input',severity:'High',steps:'Leave Postal Code empty and click Continue.',expected:'Empty Postal Code is rejected.',actual:'Empty Postal Code is accepted.'},postalType:{title:'Postal Code accepts letters and symbols',severity:'High',steps:'Enter letters or symbols in Postal Code and click Continue.',expected:'Letters and symbols are rejected.',actual:'Letters and symbols are accepted.'},quantity:{title:'Quantity accepts zero or negative values',severity:'Medium',steps:'Enter 0 or a negative number in Quantity and click Continue.',expected:'Quantity must be greater than 0 and the total must not be 0 or negative.',actual:'Quantity 0 or negative is accepted and the total becomes 0 or negative.'}};
+function renderBug(key){if(found.has(key))return;found.add(key);const d=bugData[key],card=document.createElement('article');card.className='bug-card';card.innerHTML='<p class="bug-label">JIRA-STYLE BUG · SEVERITY '+d.severity.toUpperCase()+'</p><h3>'+d.title+'</h3><dl><dt>Steps to reproduce</dt><dd>'+d.steps+'</dd><dt>Expected</dt><dd>'+d.expected+'</dd><dt>Actual</dt><dd>'+d.actual+'</dd></dl>';bugList.appendChild(card);status.textContent='DEFECTS FOUND: '+found.size+' / 3';if(found.size===3){hire.hidden=false;hire.focus?.();}clearTimeout(timer);}
+function updateTotal(){const q=Number(quantity.value);total.textContent='₹'+String(q*100);}
+quantity?.addEventListener('input',updateTotal);
+$('#checkoutButton')?.addEventListener('click',()=>{const p=postal.value, q=Number(quantity.value);if(!p)renderBug('postalEmpty');if(/[^0-9]/.test(p)&&p.length>0)renderBug('postalType');if(q<=0)renderBug('quantity');if(found.size===0)status.textContent='NO DEFECT FOUND YET / KEEP TESTING';});
+reset?.addEventListener('click',()=>{found=new Set();bugList.innerHTML='';postal.value='';quantity.value='1';updateTotal();status.textContent='DEFECTS FOUND: 0 / 3';hire.hidden=true;hint.hidden=true;clearTimeout(timer);timer=setTimeout(()=>{if(found.size===0)hint.hidden=false;},20000);});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in-view')}),{threshold:.08});$$('.reveal').forEach(el=>observer.observe(el));
