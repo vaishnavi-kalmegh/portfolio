@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Vaishnavi Kalmegh — QA / Software Test Engineer portfolio. Manual testing, API testing, Selenium, Python and pytest.">
-  <title>Vaishnavi Kalmegh | QA Engineer</title>
+  <title>VK // QA Command Center</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Vaishnavi Kalmegh home"><span>VK</span> VAISHNAVI KALMEGH</a>
+    <a class="brand" href="#top" aria-label="Vaishnavi Kalmegh home"><span>VK</span> QA COMMAND CENTER</a><div class="status"><i></i> SYSTEM ONLINE</div>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav id="nav" class="nav">
       <a href="#projects">Projects</a>
-      <a href="#test-lab">Test Lab</a>
+      <a href="#test-lab">Test Lab</a><a href="#bug-hunt">Bug Hunt</a>
       <a href="#skills">Skills</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -24,10 +24,10 @@
     <section class="hero section">
       <div class="hero-copy">
         <p class="eyebrow">QA / SOFTWARE TEST ENGINEER</p>
-        <h1>I test software by<br><span>trying to break it.</span></h1>
+        <h1>Find the thing<br><span>that shouldn’t happen.</span></h1>
         <p class="lead">Manual testing, API testing, UI automation, Python and pytest — presented as evidence, not just a list of skills.</p>
         <div class="actions">
-          <a class="btn primary" href="#projects">Explore testing work <span>→</span></a>
+          <a class="btn primary" href="#projects">ENTER TEST LAB <span>→</span></a>
           <a class="btn ghost" href="https://github.com/vaishnavi-kalmegh" target="_blank" rel="noreferrer">GitHub ↗</a>
         </div>
       </div>
@@ -55,10 +55,10 @@ CI / GitHub      ✓
 
     <section id="projects" class="section">
       <div class="section-heading">
-        <div><p class="eyebrow">PROJECTS</p><h2>Evidence across the QA stack.</h2></div>
+        <div><p class="eyebrow">PROJECTS</p><h2>Pick a layer.<br>Inspect the evidence.</h2></div>
         <p>Each project links back to the repository so a reviewer can inspect the implementation.</p>
       </div>
-      <div class="project-grid">
+      <div class="filters"><button class="filter active" data-filter="all">ALL <span>04</span></button><button class="filter" data-filter="ui">UI <span>01</span></button><button class="filter" data-filter="api">API <span>01</span></button><button class="filter" data-filter="model">MODEL <span>01</span></button><button class="filter" data-filter="manual">MANUAL <span>01</span></button></div><div class="project-grid">
         <article class="project-card featured">
           <div class="card-top"><span class="tag">UI AUTOMATION</span><span class="number">01</span></div>
           <h3>SauceDemo Selenium Automation</h3>
@@ -134,18 +134,9 @@ CI / GitHub      ✓
       </div>
     </section>
 
-    <section id="challenge" class="section challenge">
-      <div class="challenge-copy">
-        <p class="eyebrow">QA CHALLENGE</p>
-        <h2>Can you spot the bug?</h2>
-        <p>Imagine this checkout rule: the app should block checkout when the postal code is blank. Which observation is a defect?</p>
-      </div>
-      <div class="challenge-box">
-        <button class="choice" data-answer="wrong">A. Button remains enabled, but clicking it shows an error.</button>
-        <button class="choice" data-answer="right">B. Blank postal code submits the order successfully.</button>
-        <button class="choice" data-answer="wrong">C. The browser focuses the postal-code field.</button>
-        <div id="challenge-result" class="challenge-result" aria-live="polite"></div>
-      </div>
+    <section id="bug-hunt" class="section challenge bug-hunt">
+      <div class="bug-head"><div><p class="eyebrow">LIVE BUG HUNT</p><h2>I put a bug<br>in my portfolio.</h2></div><div class="bug-label">STATUS: <b>INTENTIONALLY SEEDED</b></div></div>
+      <div class="hunt-layout"><div class="hunt-brief"><p>Real testers don't only find bugs in the product. They challenge the test environment too.</p><p>Your mission: <b>use the project filters above</b>, select <b>API</b>, and compare the result with what an API filter should return.</p><div class="bug-ticket"><span>BUG-PORT-01</span><strong>API filter returns an extra project</strong><small>Severity: Low · Functional / UI · Reproducible: Yes</small></div></div><div class="hunt-quiz"><div class="quiz-label">WHAT SHOULD HAPPEN?</div><button class="quiz-choice" data-choice="a">A — API filter should display only the API project.</button><button class="quiz-choice" data-choice="b">B — API filter can display any project because filters are visual.</button><button class="quiz-choice" data-choice="c">C — The filter is correct if the API project appears somewhere.</button><div id="quiz-result" class="quiz-result" aria-live="polite"></div></div></div>
     </section>
 
     <section id="skills" class="section skills">
